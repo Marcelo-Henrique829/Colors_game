@@ -1,4 +1,4 @@
-//sintema colisão
+  //sintema colisão
 var _hspd = sign(hspd);
 var _vspd = sign(vspd);
 

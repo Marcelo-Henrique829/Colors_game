@@ -2,14 +2,18 @@
 // You can write your code in this editor
 
 //var osa maicon
-var right, left, jump, atack, dash;
-var chao = place_meeting(x, y + 1, obj_block);
+#region //inputs ou controles para os mais aviadados
 
-right	= keyboard_check(ord("D"));
-left	= keyboard_check(ord("A"));
-jump	= keyboard_check_pressed(ord("K"));
-atack	= keyboard_check_pressed(ord("J"));
-dash	=keyboard_check_pressed(vk_shift)
+	var right, left, jump, atack, dash;
+	var chao = place_meeting(x, y + 1, obj_block);
+
+	right	= keyboard_check(ord("D"));
+	left	= keyboard_check(ord("A"));
+	jump	= keyboard_check_pressed(ord("K"));
+	atack	= keyboard_check_pressed(ord("J"));
+	dash	=keyboard_check_pressed(vk_shift)
+
+#endregion
 
 //Movimentação
 hspd = (right - left) * max_hspd
@@ -25,6 +29,7 @@ if (!chao)
 	}
 }
 
+#region maquina de estado
 //iniciando a maquina de estados
 switch (estado)
 {
@@ -228,12 +233,15 @@ switch (estado)
 			estado = "parado";
 		}
 	}
-	default:
-	{
-		estado = "parado";
+		default:
+		{
+			estado = "parado";
+		}
 	}
-}
 
+#endregion
+
+//resetando o game se aperta o R
 if (keyboard_check(ord("R")))
 {
 	game_restart()
